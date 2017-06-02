@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JMX Remote Control</title>
+</head>
+<body>
+
+
+    <form action="#" th:action="@{/remoteControl}" th:object="${remoteJMXEntity}" method="get">
+
+        <h4>Connection</h4>
+        <input type="checkbox" name="createConnection" th:value="*{createConnection}" th:field="*{createConnection}" th:checked="${createConnection} ? 'checked'" />
+
+        <!--<h4>getName</h4>-->
+        <!--<input type="checkbox" name="getName" th:value="*{getName}" th:field="*{getName}" th:checked="${getName} ? 'checked'" />-->
+
+        <h4>sayHello</h4>
+        <input type="checkbox" name="sayHello"  checked="checked" th:value="*{sayHello}" th:field="*{sayHello}" th:checked="${remoteJMXEntity.sayHello} ? 'checked'"/>
+
+        <h4>setName</h4>
+        <input type="text" name="setName" th:value="*{setName}" th:field="*{setName}"/>
+
+        <h4>AddInteger</h4>
+        <input type="text" name="a" th:value="*{a}" th:field="*{a}"/>
+        +
+        <input type="text" name="b" th:value="*{b}" th:field="*{b}"/>
+
+        <!--<input type="text" name="setName" th:value="*{setName}" th:field="*{setName}"/>-->
+
+        <h4></h4>
+        <input type="submit"/>
+
+        <h5>Notification:</h5>
+        <p th:each="notif : ${notification}"
+           th:text="${notif}"></p>
+
+
+    </form>
+
+
+</body>
+</html>
